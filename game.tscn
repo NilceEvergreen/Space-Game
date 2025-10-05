@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://elst0xn32iil"]
+
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player.tscn" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://cdje7tvub2x3n" path="res://kenney_new-platformer-pack-1.0 - Copy/kenney_space-shooter-extension/Sample.png" id="2_eow3j"]
+[ext_resource type="Script" uid="uid://dgemna2cprj7k" path="res://player.gd" id="3_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://cpa36f1vklida" path="res://kenney_new-platformer-pack-1.0 - Copy/kenney_space-shooter-extension/PNG/Sprites/Ships/spaceShips_001.png" id="6_mfdv2"]
+[ext_resource type="Texture2D" uid="uid://ca186mdgbi13r" path="res://kenney_new-platformer-pack-1.0 - Copy/kenney_space-shooter-extension/PNG/Sprites/Building/spaceBuilding_021.png" id="7_iotsf"]
+
+[node name="player" instance=ExtResource("1_80nbo")]
+position = Vector2(222, 217)
+
+[node name="Sample" type="Sprite2D" parent="." index="0"]
+position = Vector2(377.49994, 133.00002)
+scale = Vector2(1.4259259, 1.7592236)
+texture = ExtResource("2_eow3j")
+
+[node name="CharacterBody2D" parent="." index="1"]
+position = Vector2(-271, -184)
+script = ExtResource("3_j5wjh")
+
+[node name="AnimatedSprite2D" parent="CharacterBody2D" index="0"]
+position = Vector2(647, 283)
+frame_progress = 0.41947886
+
+[node name="CollisionShape2D" parent="CharacterBody2D" index="1"]
+position = Vector2(642, 296)
+
+[node name="Camera2D" type="Camera2D" parent="." index="2"]
+position = Vector2(368, 106)
+enabled = false
+
+[node name="SpaceShips001" type="Sprite2D" parent="." index="3"]
+position = Vector2(584, 151)
+scale = Vector2(1.2028304, 1.3312501)
+texture = ExtResource("6_mfdv2")
+
+[node name="SpaceBuilding021" type="Sprite2D" parent="." index="4"]
+position = Vector2(795.99994, 187)
+scale = Vector2(2.2407408, 2.4268293)
+texture = ExtResource("7_iotsf")

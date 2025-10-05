@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckudr8chj1kgo"]
+
+[ext_resource type="Texture2D" uid="uid://dedspd2t8skql" path="res://kenney_new-platformer-pack-1.0 - Copy/Sprites/Characters/Default/character_beige_climb_a.png" id="1_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://bx5cyreaihenc" path="res://kenney_new-platformer-pack-1.0 - Copy/Sprites/Characters/Default/character_beige_climb_b.png" id="2_1jxqw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivps1"]
+animations = [{
+"frames": [{
+"duration": 0.6,
+"texture": ExtResource("1_2hs0m")
+}, {
+"duration": 0.6,
+"texture": ExtResource("2_1jxqw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_urp6f"]
+radius = 43.0
+height = 100.0
+
+[node name="player" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_ivps1")
+frame_progress = 0.43668216
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1, 13)
+shape = SubResource("CapsuleShape2D_urp6f")

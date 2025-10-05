@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://401pqn4v2qne"]
+
+[ext_resource type="Texture2D" uid="uid://b82a8xjh64mtm" path="res://kenney_new-platformer-pack-1.0 - Copy/Sprites/Backgrounds/Double/background_fade_mushrooms.png" id="1_wreot"]
+[ext_resource type="Script" uid="uid://biqp6t8i3xgj3" path="res://projectile.gd" id="2_2ggad"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7aap"]
+size = Vector2(63, 49)
+
+[node name="BackgroundFadeMushrooms" type="Sprite2D"]
+position = Vector2(473, 194)
+texture = ExtResource("1_wreot")
+
+[node name="projectile" type="Area2D" parent="."]
+script = ExtResource("2_2ggad")
+
+[node name="Sprite2D" type="Sprite2D" parent="projectile"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="projectile/Sprite2D"]
+position = Vector2(-26, -54)
+shape = SubResource("RectangleShape2D_o7aap")
+
+[node name="Timer" type="Timer" parent="projectile/Sprite2D/CollisionShape2D"]
+
+[connection signal="body_entered" from="projectile" to="projectile" method="_on_body_entered"]
+[connection signal="timeout" from="projectile/Sprite2D/CollisionShape2D/Timer" to="projectile" method="_on_timer_timeout"]
